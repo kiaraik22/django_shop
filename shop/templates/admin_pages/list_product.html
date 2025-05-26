@@ -1,0 +1,40 @@
+{% extends 'admin_pages/base.html' %}
+
+{% block content %}
+
+<div>
+{% for product in products %}
+    <div>
+        <div>
+            <a href="{{ product.get_absolute_url }}">
+                <b>{{ product.pk }}. {{ product.name }}</b>
+            </a>
+        </div>
+
+        <div>Категория товара: <span>{{ product.category }}</span></div>
+
+        <div><i>{{ product.discription }}</i></div>
+
+        <div>
+            {% if product.image %}
+                <img width="200" height="auto" src="{{ product.image.url }}">
+            {% endif %}
+        </div>
+
+        <div>Цена: <span>{{ product.price }}</span></div>
+
+        <div>
+            {% if product.available %}
+                <span>Доступен к продаже</span>
+            {% else %}
+                <span>Недосупен к продаже</span>
+            {% endif %}
+        </div>
+
+        <div>Дата создания объявления:<span>{{ product.created_at }}</span></div>
+
+    </div>
+{% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,9 +1,9 @@
-{% extends 'admin/base.html' %}
+{% extends 'admin_pages/base.html' %}
 
 {% block content %}
 
 <div>
-{% for category in categoriesv%}
+{% for category in categories %}
     <div>
         <b>{{ category.pk }}. {{ category.name }}</b>
         <br>
